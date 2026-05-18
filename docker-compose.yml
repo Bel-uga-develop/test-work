@@ -18,9 +18,9 @@ services:
       - db
     environment:
       DB_HOST: db
-      DB_NAME: app
-      DB_USER: app
-      DB_PASS: app_password
+      DB_NAME: ${MYSQL_DATABASE}
+      DB_USER: ${MYSQL_USER}
+      DB_PASS: ${MYSQL_PASSWORD}
     volumes:
       - ./project/:/var/www/html
 
