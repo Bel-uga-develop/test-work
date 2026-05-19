@@ -31,13 +31,8 @@ class ThirdArticleCategoriesSeeder extends AbstractSeed
             [
                 'id' => 4,
                 'article_id' => 4,
-                'category_id' => 1
+                'category_id' => 3
             ],
-            [
-                'id' => 5,
-                'article_id' => 4,
-                'category_id' => 2
-            ]
         ];
 
         $this->execute('DELETE FROM article_categories WHERE id IN (1, 2, 3, 4, 5)');

@@ -5,7 +5,8 @@
     "require": {
         "php": ">=8.1",
         "nesbot/carbon": "^2.66",
-        "robmorgan/phinx": "^0.16.11"
+        "robmorgan/phinx": "^0.16.11",
+        "smarty/smarty": "^5.8"
     },
     "autoload": {
         "psr-4": {
