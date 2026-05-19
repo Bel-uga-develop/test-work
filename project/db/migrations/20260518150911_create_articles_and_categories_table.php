@@ -1,6 +1,6 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 use Phinx\Migration\AbstractMigration;
 
@@ -19,13 +19,13 @@ final class CreateArticlesAndCategoriesTable extends AbstractMigration
      */
     public function change(): void
     {
-        $categoryTable = $this->table('category', ['id' => false, 'primary_key' => 'id']);
+        $categoryTable = $this->table('categories', ['id' => false, 'primary_key' => 'id']);
         $categoryTable->addColumn('id', 'biginteger', ['identity' => true, 'signed' => true])
             ->addColumn('name', 'string', ['limit' => 255])
             ->addColumn('description', 'text', ['null' => true])
             ->create();
 
-        $articleTable = $this->table('article', ['id' => false, 'primary_key' => 'id']);
+        $articleTable = $this->table('articles', ['id' => false, 'primary_key' => 'id']);
         $articleTable->addColumn('id', 'biginteger', ['identity' => true, 'signed' => true])
             ->addColumn('image', 'string', ['limit' => 255, 'null' => true])
             ->addColumn('name', 'string', ['limit' => 255])
@@ -39,8 +39,8 @@ final class CreateArticlesAndCategoriesTable extends AbstractMigration
         $articleCategoriesTable->addColumn('id', 'biginteger', ['identity' => true, 'signed' => true])
             ->addColumn('article_id', 'biginteger', ['signed' => true])
             ->addColumn('category_id', 'biginteger', ['signed' => true])
-            ->addForeignKey('article_id', 'article', 'id', ['delete' => 'CASCADE', 'update' => 'NO_ACTION'])
-            ->addForeignKey('category_id', 'category', 'id', ['delete' => 'CASCADE', 'update' => 'NO_ACTION'])
+            ->addForeignKey('article_id', 'articles', 'id', ['delete' => 'CASCADE', 'update' => 'NO_ACTION'])
+            ->addForeignKey('category_id', 'categories', 'id', ['delete' => 'CASCADE', 'update' => 'NO_ACTION'])
             ->create();
     }
 }

@@ -50,7 +50,24 @@ class SecondArticleSeeder extends AbstractSeed
             ]
         ];
 
-        $this->execute('DELETE FROM article WHERE id IN (1, 2, 3, 4)');
-        $this->table('article')->insert($data)->saveData();
+        $this->execute('DELETE FROM articles WHERE id IN (1, 2, 3, 4)');
+        $this->table('articles')->insert($data)->saveData();
+
+        $data = [
+            [
+                'id' => 1,
+                'name' => 'Рубашки',
+            ],
+            [
+                'id' => 2,
+                'name' => 'Брюки',
+            ],
+            [
+                'id' => 3,
+                'name' => 'Обувь',
+            ]
+        ];
+        $this->execute('DELETE FROM tags WHERE id IN (1, 2, 3)');
+        $this->table('tags')->insert($data)->saveData();
     }
 }

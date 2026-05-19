@@ -29,7 +29,7 @@ class FirstCategorySeeder extends AbstractSeed
             ]
         ];
 
-        $this->execute('DELETE FROM category WHERE id IN (1, 2, 3)');
-        $this->table('category')->insert($data)->saveData();
+        $this->execute('DELETE FROM categories WHERE id IN (1, 2, 3)');
+        $this->table('categories')->insert($data)->saveData();
     }
 }
